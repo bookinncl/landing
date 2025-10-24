@@ -82,9 +82,9 @@ export default function Page() {
         {/* Hero visual + tarjeta demo superpuesta */}
         <motion.div initial={{opacity:0, y:8}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
           <div className="relative">
-            {/* Imagen hero (usa /public/images/hero.png o .jpg) */}
+            {/* Imagen hero (usa /public/images/hero.jpg) */}
             <Image
-              src="/images/hero.png"
+              src="/images/hero.jpg"
               alt="Vista del motor de reservas Bookinn"
               width={960}
               height={720}
