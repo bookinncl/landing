@@ -1,9 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  CheckCircle2, CalendarRange, CreditCard, Building2,
-  MessagesSquare, Workflow, ShieldCheck, Globe2, Hotel
+  CheckCircle2,
+  CalendarRange,
+  CreditCard,
+  Building2,
+  MessagesSquare,
+  Workflow,
+  ShieldCheck,
+  Globe2,
+  Hotel,
 } from "lucide-react";
 
 const features = [
@@ -28,7 +36,15 @@ export default function Page() {
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Hotel className="w-5 h-5" />
+            {/* Logo (usa /public/images/logo.png) */}
+            <Image
+              src="/images/logo.png"
+              alt="Bookinn logo"
+              width={24}
+              height={24}
+              className="rounded"
+              priority
+            />
             <span className="font-semibold">Bookinn</span>
             <span className="ml-2 rounded bg-slate-100 px-2 py-0.5 text-xs">Beta</span>
           </div>
@@ -63,27 +79,44 @@ export default function Page() {
           </p>
         </motion.div>
 
+        {/* Hero visual + tarjeta demo superpuesta */}
         <motion.div initial={{opacity:0, y:8}} animate={{opacity:1, y:0}} transition={{duration:0.5}}>
-          <div className="rounded-2xl border border-slate-200 shadow-sm p-6">
-            <div className="text-sm font-medium mb-4 flex items-center gap-2">
-              <CalendarRange className="w-5 h-5"/> Buscador de disponibilidad
+          <div className="relative">
+            {/* Imagen hero (usa /public/images/hero.png o .jpg) */}
+            <Image
+              src="/images/hero.png"
+              alt="Vista del motor de reservas Bookinn"
+              width={960}
+              height={720}
+              className="rounded-2xl border border-slate-200 shadow-sm w-full h-auto"
+              priority
+              sizes="(max-width: 768px) 100vw, 560px"
+            />
+
+            {/* Demo card */}
+            <div className="absolute -bottom-5 right-4 left-4 md:right-6 md:w-[380px] md:left-auto">
+              <div className="rounded-2xl border border-slate-200 shadow-md p-6 bg-white/95 backdrop-blur">
+                <div className="text-sm font-medium mb-4 flex items-center gap-2">
+                  <CalendarRange className="w-5 h-5"/> Buscador de disponibilidad
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <input className="border rounded px-3 py-2 text-sm" placeholder="Check-in (YYYY-MM-DD)" />
+                  <input className="border rounded px-3 py-2 text-sm" placeholder="Check-out (YYYY-MM-DD)" />
+                </div>
+                <div className="grid grid-cols-2 gap-3 mt-3">
+                  <input className="border rounded px-3 py-2 text-sm" placeholder="Adultos" />
+                  <input className="border rounded px-3 py-2 text-sm" placeholder="Niños" />
+                </div>
+                <button className="mt-4 w-full px-4 py-2 rounded bg-slate-900 text-white text-sm">Consultar</button>
+                <div className="text-xs text-slate-500 mt-2">*Demo visual (sin conexión).</div>
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              <input className="border rounded px-3 py-2 text-sm" placeholder="Check-in (YYYY-MM-DD)" />
-              <input className="border rounded px-3 py-2 text-sm" placeholder="Check-out (YYYY-MM-DD)" />
-            </div>
-            <div className="grid grid-cols-2 gap-3 mt-3">
-              <input className="border rounded px-3 py-2 text-sm" placeholder="Adultos" />
-              <input className="border rounded px-3 py-2 text-sm" placeholder="Niños" />
-            </div>
-            <button className="mt-4 w-full px-4 py-2 rounded bg-slate-900 text-white text-sm">Consultar</button>
-            <div className="text-xs text-slate-500 mt-2">*Demo visual (sin conexión).</div>
           </div>
         </motion.div>
       </section>
 
       {/* Features */}
-      <section id="features" className="max-w-6xl mx-auto px-4 py-16">
+      <section id="features" className="max-w-6xl mx-auto px-4 py-20">
         <h2 className="text-3xl font-semibold mb-8">Características</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {features.map((f, i) => (
