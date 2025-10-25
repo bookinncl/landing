@@ -13,9 +13,9 @@ import {
   Globe2,
 } from "lucide-react";
 
-// ✅ Import estático (evita 404 y da blur)
-import logoImg from "@/public/images/logo.png"; // o logo.svg
-import heroImg from "@/public/images/hero.jpg"; // cámbialo a .png si corresponde
+// ✅ Import directo sin alias (Vercel friendly)
+import logoImg from "../../public/images/logo.png";
+import heroImg from "../../public/images/hero.jpg"; // cambia a .png si corresponde
 
 const features = [
   { icon: CalendarRange, title: "Disponibilidad en tiempo real", desc: "Consulta por fechas y tipo de habitación sin fricción." },
@@ -63,7 +63,7 @@ export default function Page() {
 
       {/* HERO FULL-WIDTH */}
       <section className="relative w-full overflow-hidden">
-        {/* ✅ Imagen full-bleed como background */}
+        {/* ✅ Imagen de fondo full width */}
         <div className="absolute inset-0 -z-10">
           <Image
             src={heroImg}
@@ -74,14 +74,16 @@ export default function Page() {
             sizes="100vw"
             className="object-cover object-center"
           />
-          {/* Gradiente para legibilidad del texto */}
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
         </div>
 
-        {/* Contenido del hero */}
-        <div className="max-w-6xl mx-auto px-4 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 py-20 md:py-28">
           <div className="grid md:grid-cols-2 gap-10 items-center">
-            <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+            >
               <span className="inline-block mb-4 rounded bg-slate-900 text-white text-xs px-2 py-1">
                 Reservas directas para hoteles boutique
               </span>
@@ -103,7 +105,6 @@ export default function Page() {
               </p>
             </motion.div>
 
-            {/* ✅ Formulario SIN tapar la imagen (ya no es absoluto) */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -200,10 +201,16 @@ export default function Page() {
         <div className="grid md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-3xl font-semibold mb-3">Conversemos</h2>
-            <p className="text-slate-600 mb-6">Agenda una demo y te mostramos Bookinn con tu inventario.</p>
+            <p className="text-slate-600 mb-6">
+              Agenda una demo y te mostramos Bookinn con tu inventario.
+            </p>
             <div className="space-y-2 text-sm text-slate-700">
-              <div className="flex items-center gap-2"><MessagesSquare className="w-5 h-5" /> WhatsApp: +56 9 0000 0000</div>
-              <div className="flex items-center gap-2"><Globe2 className="w-5 h-5" /> Email: hola@bookinn.cl</div>
+              <div className="flex items-center gap-2">
+                <MessagesSquare className="w-5 h-5" /> WhatsApp: +56 9 0000 0000
+              </div>
+              <div className="flex items-center gap-2">
+                <Globe2 className="w-5 h-5" /> Email: hola@bookinn.cl
+              </div>
             </div>
           </div>
           <div className="rounded-2xl border border-slate-200 p-6 bg-white">
@@ -216,8 +223,12 @@ export default function Page() {
               <input className="border rounded px-3 py-2 text-sm col-span-2" placeholder="Teléfono" />
               <textarea className="border rounded px-3 py-2 text-sm col-span-2" placeholder="Cuéntanos sobre tu web, PMS y OTAs actuales" rows={4} />
             </div>
-            <button className="mt-4 w-full px-4 py-2 rounded bg-slate-900 text-white text-sm">Enviar</button>
-            <p className="text-xs text-slate-500 mt-2">Te contactamos en 1–2 días hábiles.</p>
+            <button className="mt-4 w-full px-4 py-2 rounded bg-slate-900 text-white text-sm">
+              Enviar
+            </button>
+            <p className="text-xs text-slate-500 mt-2">
+              Te contactamos en 1–2 días hábiles.
+            </p>
           </div>
         </div>
       </section>
