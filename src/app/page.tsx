@@ -196,7 +196,7 @@ export default function Page() {
             <h2 className="text-3xl font-semibold mb-3">Conversemos</h2>
             <p className="text-slate-600 mb-6">Agenda una demo y te mostramos Bookinn con tu inventario.</p>
             <div className="space-y-2 text-sm text-slate-700">
-              <div className="flex items-center gap-2"><MessagesSquare className="w-5 h-5" /> WhatsApp: +56 9 0000 0000</div>
+              <div className="flex items-center gap-2"><MessagesSquare className="w-5 h-5" /> WhatsApp: +56 9 4032 4734</div>
               <div className="flex items-center gap-2"><Globe2 className="w-5 h-5" /> Email: hola@bookinn.cl</div>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function Page() {
               <textarea className="border rounded px-3 py-2 text-sm col-span-2" placeholder="Cuéntanos sobre tu web, PMS y OTAs actuales" rows={4} />
             </div>
             <button className="mt-4 w-full px-4 py-2 rounded bg-slate-900 text-white text-sm">Enviar</button>
-            <p className="text-xs text-slate-500 mt-2">Te contactamos en 1–2 días hábiles.</p>
+            <p className="text-xs text-slate-500 mt-2">Te contactamos en 1 hábil.</p>
           </div>
         </div>
       </section>
